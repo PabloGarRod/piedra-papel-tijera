@@ -56,8 +56,17 @@ function jugar(eleccionUsuario){
             }
         }
     }
-    console.log("Has elegido " + eleccionUsuario+".");
-    console.log("La máquina ha elegido " + maquina + ".");
-    console.log("Resultado:")
-    console.log(ganador());
+
+    const result = document.getElementById("resultado")
+    result.innerText = "Has elegido " + 
+    eleccionUsuario + ".\n" + 
+    "La máquina ha elegido " + maquina + ".\n" + 
+    "Resultado:\n" + 
+    ganador()
+
+
+    // console.log("Has elegido " + eleccionUsuario+".");
+    // console.log("La máquina ha elegido " + maquina + ".");
+    // console.log("Resultado:")
+    // console.log(ganador());
 }
