@@ -5,17 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra Papel Tijera</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <h1>Piedra, papel o tijera</h1>
-    <h2>Mi primer proyecto en JavasCript, el juego de piedra, papel o tijera.</h2>
-    <div>
-        <p>Elige tu opción:</p>
-        <button onclick="jugar('Piedra')">Piedra</button>
-        <button onclick="jugar('Papel')">Papel</button>
-        <button onclick="jugar('Tijera')">Tijera</button>
-        <p id="resultado"></p>
+    <header>
+        <h1>Piedra, papel o tijera</h1>
+        <h2>Mi primer proyecto en JavaScript, el juego de piedra, papel o tijera.</h2>
+    </header>
+    
+    <div class="container">
+        <div class="caja">
+            <div class="opcion">
+            <h2>Elige tu opción:</h2>
+            </div>
+            <div class="botones">
+                <button class="boton-piedra" onclick="jugar('Piedra')">
+                    <img class="icono-piedra" src="./piedra.png" alt="piedra">
+                    Piedra
+                 </button>
+    
+                <button class="boton" onclick="jugar('Papel')">
+                    <img class="icono-papel" id="papel" src="./papel.png" alt="papel">
+                    Papel
+                </button>
+    
+                <button class="boton" onclick="jugar('Tijera')">
+                    <img class="icono" src="./tijera.png" alt="tijera">
+                    Tijera
+                </button>
+            </div>
+            
+            <p id="resultado"></p>
+        </div>
     </div>
+    
     <script src="./piedra-papel-tijera.js"></script>
 </body>
 </html>
