@@ -7,66 +7,79 @@ function eleccionMaquina(){
     var num = Math.floor((Math.random() * (3)) + 1);
     switch(num){
         case 1: 
-            return "Piedra";
-            break;
+            return "piedra";
         case 2:
-            return "Papel";
-            break;
+            return "papel";
         case 3:
-            return "Tijera";
-            break;
+            return "tijera";
     }
 }
 
 function jugar(eleccionUsuario){
-    var maquina = eleccionMaquina();
-    function ganador(){
-        if (eleccionUsuario == "Piedra"){
-            switch(maquina){ 
-                case "Piedra":
-                    return "Piedra y piedra empatan."
-                    break;
-                case "Papel":
-                    return "Papel gana a piedra. Has perdido."
-                    break;
-                case "Tijera":
-                    return "Piedra gana a tijera. Has ganado"
-            }
-        }else if(eleccionUsuario == "Tijera"){
-            switch(maquina){
-                case "Piedra":
-                    return "Piedra gana a tijera. Has perdido"
-                    break;
-                case "Papel":
-                    return "Tijera gana a papel. Has ganado"
-                    break;
-                case "Tijera":
-                    return "Tijera y Tijera empatan."
-            }
-        }else if(eleccionUsuario == "Papel"){
-            switch(maquina){
-                case "Piedra":
-                    return "Papel gana a piedra. Has ganado."
-                    break;
-                case "Papel":
-                    return "Papel y papel empatan."
-                    break;
-                case "Tijera":
-                    return "Tijera gana a papel. Has perdido."
-            }
+    let maquina = eleccionMaquina();
+    let esGanador;
+    let empate;
+
+    if(eleccionUsuario=='piedra'){
+        if(maquina=='piedra'){
+            empate = true;
+        }else if(maquina=='papel'){
+            empate=false;
+            esGanador=false;
+        }else{
+            empate=false;
+            esGanador=true;
+        }
+    }else if(eleccionUsuario=='papel'){
+        if(maquina=='piedra'){
+            empate = false;
+            esGanador = true;
+        }else if(maquina=='papel'){
+            empate=true;
+        }else{
+            empate=false;
+            esGanador=false;
+        }
+    }else{
+        if(maquina=='piedra'){
+            empate = false;
+            esGanador = false;
+        }else if(maquina=='papel'){
+            empate=false;
+            esGanador = true
+        }else{
+            empate=true;
         }
     }
 
-    const result = document.getElementById("resultado")
-    result.innerText = "Has elegido " + 
-    eleccionUsuario + ".\n" + 
-    "La máquina ha elegido " + maquina + ".\n" + 
-    "Resultado:\n" + 
-    ganador()
+
+    const result = document.getElementById('resultado')
+    result.style.backgroundColor = ('aqua')
+    result.style.borderRadius = "25%"
+    const cabeceraJugador = document.getElementById('cabecera-jugador')
+    cabeceraJugador.innerText = `Has elegido:\n ${eleccionUsuario}`
+    const iconoJugador = document.getElementById('img-jugador')
+    //Esta linea es para darle estilos css
+    iconoJugador.className = "icono_" 
+    iconoJugador.src = `${eleccionUsuario}.png`
+    const cabeceraMaquina = document.getElementById('cabecera-maquina');
+    cabeceraMaquina.innerText = `La máquina:\n ${maquina}.`
+    const iconoMaquina = document.getElementById('img-maquina')
+    iconoMaquina.className = "icono_"
+    iconoMaquina.src = `${maquina}.png`
+
+    const ganador = document.getElementById('ganador-final')
+
+    if(empate){
+        ganador.innerText ='Habéis empatado'
+    }else if(esGanador){
+        ganador.innerText = 'Enhorabuena! Has ganado.'
+    }else{
+        ganador.innerText = 'Lo siento, has perdido. :('
+    }
+
+   
+    
 
 
-    // console.log("Has elegido " + eleccionUsuario+".");
-    // console.log("La máquina ha elegido " + maquina + ".");
-    // console.log("Resultado:")
-    // console.log(ganador());
 }

@@ -19,25 +19,38 @@
             <h2>Elige tu opción:</h2>
             </div>
             <div class="botones">
-                <button class="boton-piedra" onclick="jugar('Piedra')">
+                <button class="boton-piedra" onclick="jugar('piedra')">
                     <img class="icono-piedra" src="./piedra.png" alt="piedra">
                     Piedra
                  </button>
     
-                <button class="boton" onclick="jugar('Papel')">
+                <button class="boton" onclick="jugar('papel')">
                     <img class="icono-papel" id="papel" src="./papel.png" alt="papel">
                     Papel
                 </button>
     
-                <button class="boton" onclick="jugar('Tijera')">
+                <button class="boton" onclick="jugar('tijera')">
                     <img class="icono" src="./tijera.png" alt="tijera">
                     Tijera
                 </button>
             </div>
-            
-            <p id="resultado"></p>
         </div>
+
+        <div id="resultado">
+            <div id="jugador" class="participante">
+                <h1 id="cabecera-jugador"></h1>
+                <img src="" id="img-jugador">
+            </div>
+            <div id="maquina" class="participante">
+                <h1 id="cabecera-maquina"></h1>
+                <img src="" id="img-maquina">
+            </div>
+            
+        </div>
+        <div id="ganador-final"></div>
     </div>
+
+    
     
     <script src="./piedra-papel-tijera.js"></script>
 </body>
